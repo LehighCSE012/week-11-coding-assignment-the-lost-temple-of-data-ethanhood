@@ -76,29 +76,29 @@ if __name__ == '__main__':
     TSV_FILE = 'locations.tsv'
     JOURNAL_FILE = 'journal.txt'
 
-    print(f"--- Loading Artifact Data from {excel_file} ---")
+    print(f"--- Loading Artifact Data from {EXCEL_FILE} ---")
     try:
-        artifacts_df = load_artifact_data(excel_file)
+        artifacts_df = load_artifact_data(EXCEL_FILE)
         print("Successfully loaded DataFrame. First 5 rows:")
         print(artifacts_df.head())
         print("\nDataFrame Info:")
         artifacts_df.info()
     except FileNotFoundError:
-        print(f"Error: File not found at {excel_file}")
+        print(f"Error: File not found at {EXCEL_FILE}")
 
-    print(f"\n--- Loading Location Notes from {tsv_file} ---")
+    print(f"\n--- Loading Location Notes from {TSV_FILE} ---")
     try:
-        locations_df = load_location_notes(tsv_file)
+        locations_df = load_location_notes(TSV_FILE)
         print("Successfully loaded DataFrame. First 5 rows:")
         print(locations_df.head())
         print("\nDataFrame Info:")
         locations_df.info()
     except FileNotFoundError:
-        print(f"Error: File not found at {tsv_file}")
+        print(f"Error: File not found at {TSV_FILE}")
 
-    print(f"\n--- Processing Journal from {journal_file} ---")
+    print(f"\n--- Processing Journal from {JOURNAL_FILE} ---")
     try:
-        with open(journal_file, 'r', encoding='utf-8') as f:
+        with open(JOURNAL_FILE, 'r', encoding='utf-8') as f:
             journal_content = f.read()
 
         print("\nExtracting Dates...")
@@ -110,4 +110,4 @@ if __name__ == '__main__':
         print(f"Found codes: {codes}")
 
     except FileNotFoundError:
-        print(f"Error: File not found at {journal_file}")
+        print(f"Error: File not found at {JOURNAL_FILE}")
