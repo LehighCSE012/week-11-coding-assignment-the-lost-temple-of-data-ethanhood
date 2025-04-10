@@ -1,6 +1,7 @@
 # Your code goes here
 """Assignment 11: The Lost Temple of Data"""
 import pandas as pd
+from datetime import datetime
 import re
 
 def load_artifact_data(excel_filepath):
