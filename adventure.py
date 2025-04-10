@@ -1,8 +1,8 @@
 # Your code goes here
 """Assignment 11: The Lost Temple of Data"""
-import pandas as pd
-from datetime import datetime
 import re
+from datetime import datetime
+import pandas as pd
 
 def load_artifact_data(excel_filepath):
     """
@@ -72,9 +72,9 @@ def extract_secret_codes(journal_text):
 # --- Optional: Main execution block for your own testing ---
 if __name__ == '__main__':
     # Define file paths (adjust if your files are located elsewhere)
-    excel_file = 'artifacts.xlsx'
-    tsv_file = 'locations.tsv'
-    journal_file = 'journal.txt'
+    EXCEL_FILE = 'artifacts.xlsx'
+    TSV_FILE = 'locations.tsv'
+    JOURNAL_FILE = 'journal.txt'
 
     print(f"--- Loading Artifact Data from {excel_file} ---")
     try:
