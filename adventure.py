@@ -41,8 +41,18 @@ def extract_journal_dates(journal_text):
         list[str]: A list of date strings found in the text.
     """
     pattern = r"\b\d{2}/\d{2}/\d{4}\b"
-    dates = re.findall(pattern, journal_text)
-    return dates
+    possible_dates = re.findall(pattern, journal_text)
+    valid_dates = []
+
+    for date_str in possible_dates:
+        try:
+            # Try to parse it to validate it's a real date
+            datetime.strptime(date_str, "%m/%d/%Y")
+            valid_dates.append(date_str)
+        except ValueError:
+            pass  # Invalid date (like 99/99/9999), skip it
+
+    return valid_dates
 
 def extract_secret_codes(journal_text):
     """
